@@ -20,6 +20,7 @@
 	使用bootstrap出现的问题：
 		1，同时使用height设定高度（设置完此属性可以自动固定表头）和fixedColumns:true,fixedNumber:1固定列时，会出现bug
 		2，当表头为多行是，并且使用fixedColumns:true,fixedNumber:1时也会出现bug
+		3,height属性和固定列不能同时用，否则会出现bug（此问题还没有解决）
 	
 	为了解决表头为多行且需要固定列的问题？我自己写了一个固定列的代码，原理如下：
 		1，首先clone一下fixed-table-body这个类里面的table
@@ -29,7 +30,7 @@
 		5，再获取表头中每行tr的height值，
 		6，包裹层的大小设置为需要固定的列的大小，再添加"position":"absolute","zIndex":999,"width":wrapWidth,"height":wrapHeight,"overflow":"hidden","background":"#fff","border-right":"1px solid #ddd"这些属性
 		7，在fixed-table-body这个类下绑定scroll事件，在事件函数里面设定包裹层的left和top，就可以实现列固定了，注意：在绑定之前首先要解除上次绑定，否则会出现在换页时被固定的列还是上一次的bug问题。
-
+	本人对bootstrap-table的改进为：当表头为多行的同时还能固定列
 
 **************************************/
 	/*这两个值作为全局变量,保存需要固定的列的left和top值，如果不设为全局变量，会出现当滚动条不在开始位置时切换页时被固定的列不会出来，只有滚动滚动条的时才出来（用户体检不好）*/

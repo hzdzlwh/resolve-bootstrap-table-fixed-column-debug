@@ -39,12 +39,24 @@
 
         var $tr = this.$header.find('tr:eq(0)').clone(),
             $ths = $tr.clone().find('th');
+        //var $trLi = this.$header.find('tr:eq(1)').clone(),     // myCode
+            //$thsLi = $trLi.clone().find('th');
 
         $tr.html('');
+        //$trLi.html('');                                        //myCode
+
         for (var i = 0; i < this.options.fixedNumber; i++) {
+            $ths.eq(i).css('height','82');                        //lwhCode
+            console.log($ths.eq(i).get(0));
             $tr.append($ths.eq(i).clone());
         }
         this.$fixedHeaderColumns.html('').append($tr);
+        console.log($tr.get(0));
+        /*for (var i = 0; i < this.options.fixedNumber; i++) {   //myCode
+            $trLi.append($thsLi.eq(i).clone());
+        }
+        this.$fixedHeaderColumns.append($trLi);*/
+
     };
 
     BootstrapTable.prototype.initBody = function () {
@@ -57,15 +69,18 @@
         var that = this;
 
         this.$fixedBodyColumns.html('');
-        this.$body.find('> tr[data-index]').each(function () {
+        this.$body.find('> tr[data-index]').each(function (index) {
             var $tr = $(this).clone(),
                 $tds = $tr.clone().find('td');
 
             $tr.html('');
+            console.log($tr.get(0))
             for (var i = 0; i < that.options.fixedNumber; i++) {
-                $tr.append($tds.eq(i).clone());
+                
+                    $tr.append($tds.eq(i).clone());
             }
-            that.$fixedBodyColumns.append($tr);
+
+            that.$fixedBodyColumns.append($tr);  
         });
     };
 

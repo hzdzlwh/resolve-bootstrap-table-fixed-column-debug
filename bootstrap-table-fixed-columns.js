@@ -37,14 +37,24 @@
 
         this.initFixedColumns();
 
-        var $tr = this.$header.find('tr:eq(0)').clone(),
+        /*var $tr = this.$header.find('tr:eq(0)').clone(),
             $ths = $tr.clone().find('th');
 
         $tr.html('');
         for (var i = 0; i < this.options.fixedNumber; i++) {
             $tr.append($ths.eq(i).clone());
         }
-        this.$fixedHeaderColumns.html('').append($tr);
+        this.$fixedHeaderColumns.html('').append($tr);*/
+        var _this = this;                                      //lwh
+        this.$header.find('tr').each(function(index,elem){
+            var $tr = $(this).clone(),
+                $ths = $tr.clone().find('th');
+            $tr.html('');
+            for(var i =0; i < _this.options.fixedNumber; i++){
+                $tr.append($ths.eq(i).clone());
+            }
+            _this.$fixedHeaderColumns.append($tr);
+        });
     };
 
     BootstrapTable.prototype.initBody = function () {

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap/bootstrap.css" />
+	<link rel="stylesheet" href="./bootstrap-table/bootstrap-table.css" />	
+	<link rel="stylesheet" href="bootstrap-table-fixed-columns.css" />
+	<script src="./jquery-2.1.4.min.js"></script>
+	<script src="./bootstrap-3.3.4.min.js"></script>	
+	<script src="./bootstrap-table.js"></script>
+	<script src="./bootstrap-table-fixed-columns.js"></script>
+<style type="text/css">
+#tableAfterSale{
+	/*width: 3000px;*/  /*此处设置table的宽非常重要，因为按文档说明在columns中设置列的width不起作用（此处有bug），通过此处设置可以让列宽自动分配*/
+}
+
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$('#tableAfterSale').bootstrapTable('destroy').bootstrapTable({
+						method: 'get', //请求方式（*）
+						toolbar: '#toolbar', //工具按钮用哪个容器
+						striped: false, //是否显示行间隔色
+						cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+						//height: 400,  //同时使用此配置和固定列会出bug
+						pagination: true, //是否显示分页（*）
+						sortable: true, //是否启用排序
+						sortOrder: "asc", //排序方式
+						sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+						pageNumber: 1, //初始化加载第一页，默认第一页
+						pageSize: 5, //每页的记录行数（*）
+						pageList: [10, 25, 50, 100], //可供选择的每页的行数（*）
+						search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+						strictSearch: false, //严格搜索模式
+						showColumns: false, //是否显示所有的列
+						showRefresh: false, //是否显示刷新按钮
+						minimumCountColumns: 2, //最少允许的列数
+						clickToSelect: true, //是否启用点击选中行
+						uniqueId: "ID", //每一行的唯一标识，一般为主键列
+						showToggle: false, //是否显示详细视图和列表视图的切换按钮
+						cardView: false, //是否显示详细视图
+						detailView: false, //是否显示父子表
+						columns: [[{field:"user_email",title:"email111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_company",title:"company111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_dates",title:"date11111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_lastlogintime",title:"lastlogintime1111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_version",title:"version11111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_isv2",title:"isv211111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_usertype",title:"usertype1111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_package_id",title:"package_id111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_end_time",title:"end_time11111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300}],[{field:"user_email",title:"email111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_company",title:"company111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_dates",title:"date11111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_lastlogintime",title:"lastlogintime1111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_version",title:"version11111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_isv2",title:"isv211111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_usertype",title:"usertype1111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_package_id",title:"package_id111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_end_time",title:"end_time11111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300}]],
+						data: [{"user_email":"20dai.rikon@gmail.com","user_company":"","user_dates":"2014-10-13","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"20dai.rikon@gmail.com","user_company":"NULL","user_dates":"2014-10-13","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},{"user_email":"20083matsumoto-hs@polus.co.jp","user_company":"","user_dates":"2014-10-31","user_lastlogintime":"1414726074","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},{"user_email":"20.2.n0.5@gmail.com","user_company":"","user_dates":"2014-11-21","user_lastlogintime":"1416564204","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},{"user_email":"1st.pocket.wars@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"1hourbunko@gmail.com","user_company":"","user_dates":"2014-10-18 07:52:40","user_lastlogintime":"1413618760","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"1chan.723@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"1a2y0a2@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"}],
+						onPageChange: function (size, number) {
+							
+		                },
+		                fixedColumns:true,
+            			fixedNumber:1
+					});
+
+					$('#tableAfterSale').bootstrapTable('mergeCells',{index:0,field:"user_email",colspan:1,rowspan:2});
+
+
+
+	$('#myTable').bootstrapTable('destroy').bootstrapTable({
+						method: 'get', //请求方式（*）
+						toolbar: '#toolbar', //工具按钮用哪个容器
+						striped: false, //是否显示行间隔色
+						cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+						//height: 400,  //同时使用此配置和固定列会出bug
+						pagination: true, //是否显示分页（*）
+						sortable: true, //是否启用排序
+						sortOrder: "asc", //排序方式
+						sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+						pageNumber: 1, //初始化加载第一页，默认第一页
+						pageSize: 5, //每页的记录行数（*）
+						pageList: [10, 25, 50, 100], //可供选择的每页的行数（*）
+						search: true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+						strictSearch: false, //严格搜索模式
+						showColumns: false, //是否显示所有的列
+						showRefresh: false, //是否显示刷新按钮
+						minimumCountColumns: 2, //最少允许的列数
+						clickToSelect: true, //是否启用点击选中行
+						uniqueId: "ID", //每一行的唯一标识，一般为主键列
+						showToggle: false, //是否显示详细视图和列表视图的切换按钮
+						cardView: false, //是否显示详细视图
+						detailView: false, //是否显示父子表
+						columns: [[{field:"user_email",title:"email111111111111111",align:"center",valign:"middle",sortable:"true",width:300,rowspan: 2},{field:"user_company",title:"company111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_dates",title:"date11111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_lastlogintime",title:"lastlogintime1111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_version",title:"version11111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_isv2",title:"isv211111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_usertype",title:"usertype1111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_package_id",title:"package_id111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_end_time",title:"end_time11111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300}],[{field:"user_company",title:"company111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_dates",title:"date11111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_lastlogintime",title:"lastlogintime1111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_version",title:"version11111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"user_isv2",title:"isv211111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_usertype",title:"usertype1111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_package_id",title:"package_id111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300},{field:"userstatus_end_time",title:"end_time11111111111111111111111",align:"center",valign:"middle",sortable:"true",width:300}]],
+						data: [{"user_email":"20dai.rikon@gmail.com","user_company":"","user_dates":"2014-10-13","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"20dai.rikon@gmail.com","user_company":"NULL","user_dates":"2014-10-13","user_lastlogintime":"0","user_version":"1","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100001","userstatus_end_time":"NULL"},{"user_email":"20083matsumoto-hs@polus.co.jp","user_company":"","user_dates":"2014-10-31","user_lastlogintime":"1414726074","user_version":"0","user_isv2":"1","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},{"user_email":"20.2.n0.5@gmail.com","user_company":"","user_dates":"2014-11-21","user_lastlogintime":"1416564204","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"0"},{"user_email":"1st.pocket.wars@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"1hourbunko@gmail.com","user_company":"","user_dates":"2014-10-18 07:52:40","user_lastlogintime":"1413618760","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"1chan.723@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"},{"user_email":"1a2y0a2@gmail.com","user_company":"","user_dates":"2014-10-13 13:35:51","user_lastlogintime":"0","user_version":"0","user_isv2":"0","userstatus_usertype":"0","userstatus_package_id":"100014","userstatus_end_time":"NULL"}],
+						onPageChange: function (size, number) {
+							
+		                },
+		                fixedColumns:true,
+            			fixedNumber:1
+					});
+
+});
+	
+</script>
+</head>
+<body>
+<div>
+	<table class="table" id="tableAfterSale"></table>
+	<table class="table" id="myTable"></table>
+</div>
+</body>
+</html>
